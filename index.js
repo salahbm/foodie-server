@@ -3,13 +3,14 @@ const bodyParser = require("body-parser");
 const mysql = require("mysql2");
 const cors = require("cors");
 
+//set  up
 const app = express();
 const port = 8082;
 app.use(cors());
 
 // Create a MySQL FoodieDB
 const FoodieDB = mysql.createConnection({
-  host: "127.0.0.1",
+  host: "localhost", //"127.0.0.1",
   port: "3306",
   user: "root",
   password: "Bahmuhsal2001?",
