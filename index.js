@@ -45,12 +45,53 @@ app.get("/data", function (req, res) {
 // Define an endpoint for adding a new restaurant
 
 app.post("/data", function (req, res) {
-  const { name, type, businessNum, photo1, photo2, photo3 } = req.body;
+  const {
+    name,
+    type1,
+    type2,
+    businessNum,
+    phone,
+    address,
+    photo1,
+    photo2,
+    photo3,
+    Sunday,
+    Monday,
+    Tuesday,
+    Wednesday,
+    Thursday,
+    Friday,
+    Saturday,
+  } = req.body;
   const restaurantsQuery =
-    "INSERT INTO restaurants (name, type, businessNum,photo1,photo2,photo3) VALUES (?, ?, ?,?,?,?)";
+    "INSERT INTO restaurants (name, type1, type2, businessNum, phone, address, photo1, photo2, photo3, Sunday_start, Sunday_end, Monday_start, Monday_end, Tuesday_start, Tuesday_end, Wednesday_start, Wednesday_end, Thursday_start, Thursday_end, Friday_start, Friday_end, Saturday_start, Saturday_end) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
   FoodieDB.query(
     restaurantsQuery,
-    [name, type, businessNum, photo1, photo2, photo3],
+    [
+      name,
+      type1,
+      type2,
+      businessNum,
+      phone,
+      address,
+      photo1,
+      photo2,
+      photo3,
+      Sunday.start,
+      Sunday.end,
+      Monday.start,
+      Monday.end,
+      Tuesday.start,
+      Tuesday.end,
+      Wednesday.start,
+      Wednesday.end,
+      Thursday.start,
+      Thursday.end,
+      Friday.start,
+      Friday.end,
+      Saturday.start,
+      Saturday.end,
+    ],
     function (error, results) {
       if (error) {
         console.error("Error adding restaurant to database: " + error.stack);
