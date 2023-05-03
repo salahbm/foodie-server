@@ -13,8 +13,8 @@ const FoodieDB = mysql.createConnection({
   host: "localhost", //"127.0.0.1",
   port: "3306",
   user: "root",
-  password: "Bahmuhsal2001?",
-  database: "foodie",
+  password: "admin123",
+  database: "Foodie",
 });
 
 // Connect to the MySQL server
@@ -62,9 +62,10 @@ app.post("/data", function (req, res) {
     Thursday,
     Friday,
     Saturday,
+    note,
   } = req.body;
   const restaurantsQuery =
-    "INSERT INTO restaurants (name, type1, type2, businessNum, phone, address, photo1, photo2, photo3, Sunday_start, Sunday_end, Monday_start, Monday_end, Tuesday_start, Tuesday_end, Wednesday_start, Wednesday_end, Thursday_start, Thursday_end, Friday_start, Friday_end, Saturday_start, Saturday_end) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    "INSERT INTO restaurants (name, type1, type2, businessNum, phone, address, photo1, photo2, photo3, Sunday_start, Sunday_end, Monday_start, Monday_end, Tuesday_start, Tuesday_end, Wednesday_start, Wednesday_end, Thursday_start, Thursday_end, Friday_start, Friday_end, Saturday_start, Saturday_end,note) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)";
   FoodieDB.query(
     restaurantsQuery,
     [
@@ -91,6 +92,7 @@ app.post("/data", function (req, res) {
       Friday.end,
       Saturday.start,
       Saturday.end,
+      note,
     ],
     function (error, results) {
       if (error) {
