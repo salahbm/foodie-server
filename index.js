@@ -10,11 +10,11 @@ app.use(cors());
 
 // Create a MySQL FoodieDB
 const FoodieDB = mysql.createConnection({
-  host: "localhost", //"127.0.0.1",
+  host: "15.164.162.151", //"127.0.0.1",
   port: "3306",
-  user: "root",
-  password: "admin123",
-  database: "Foodie",
+  user: "admin",
+  password: "admin123!",
+  database: "test",
 });
 
 // Connect to the MySQL server
@@ -31,7 +31,7 @@ app.use(bodyParser.json());
 
 // Define an endpoint for getting data from the database and receive the data
 app.get("/data", function (req, res) {
-  const query = "SELECT * FROM Foodie.restaurants";
+  const query = "SELECT * FROM test.Restaurants ";
   FoodieDB.query(query, function (error, results) {
     if (error) {
       console.error("Error getting data from database: " + error.stack);
