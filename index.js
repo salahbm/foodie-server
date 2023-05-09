@@ -65,7 +65,7 @@ app.post("/data", function (req, res) {
     note,
   } = req.body;
   const restaurantsQuery =
-    "INSERT INTO restaurants (name, type1, type2, businessNum, phone, address, photo1, photo2, photo3, Sunday_start, Sunday_end, Monday_start, Monday_end, Tuesday_start, Tuesday_end, Wednesday_start, Wednesday_end, Thursday_start, Thursday_end, Friday_start, Friday_end, Saturday_start, Saturday_end,note) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)";
+    "INSERT INTO Restaurants (name, type1, type2, businessNum, phone, address, photo1, photo2, photo3, Sunday_start, Sunday_end, Monday_start, Monday_end, Tuesday_start, Tuesday_end, Wednesday_start, Wednesday_end, Thursday_start, Thursday_end, Friday_start, Friday_end, Saturday_start, Saturday_end,note) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)";
   FoodieDB.query(
     restaurantsQuery,
     [
